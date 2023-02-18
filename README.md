@@ -1,26 +1,25 @@
-################################original_data##########################
-1、原始辐射四分量数据，excel和feather格式，excel格式方便直接查看，feather二进制数据方便读取；
-2、2017-2020年南京站日降水资料
+## original_data
+1、The original radiation four-component data is minute data, and one copy is stored in excel format for direct viewing and feather binary data for easy reading;  
+2、Daily precipitation data of Nanjing Station from 2017 to 2020;  
+3、However the original excel and feather exceed github upload file size, so cannot be uploaded;  
 
-###########################after_processing############################
-对原始分钟数据处理后得到的数据，30min、1h、1d、1mon平均
-包含excel和feather格式，分别方便查看和Python读取
+## after_processing
+Data obtained after the original minute data processing, 30min average, including excel and feather format, convenient viewing and Python reading respectively.  
 
-##############################excel_feather.py###############################
-将原始excel格式数据转化程feather格式的Python代码
-1、将所有时间的数据整合到一起了；
-2、每种材料都单独存成一个feather格式数据；
-3、四种材料都存在同一个excel当中；
-4、将辐射四分量均为缺测的时刻删除；
+## excel_feather.py
+Python code to convert raw excel data to feather format  
+  1. Integrated the data of all time;  
+  2. Each material is stored separately as a feather format data;  
+  3. All four materials are stored in the same excel;  
+  4. Delete the time when all four components of radiation are missing measurement;  
 
-################################time_processing.py################################
-对原始数据进行重抽样，计算30min、1h、1d、1mon平均（向前平均）
-    00:30包括(00:00, 00:30], 01:00包括(00:30,01:00]
-    01:00包括(01:00, 02:00]
-    01 00:00:00包括(00 00:00:00, 01 00:00:00]
-    02-01 00:00:00包括(01-01 00:00:00, 02-01 00:00:00]
-1、在进行平均之前，先对原始数据进行质量控制；
-   a. 将短波辐射值小于5的设置为0，缺测；
-   b. 将向下短波辐射DR<向上短波辐射UR时刻的DR、UR设置为nan，缺测；
+## time_processing.py
+Re-sample the original data and calculate the 30min average (forward average)  
+00:30 included (00:00, 00:30], 01:00 included (00:30,01:00), 01:00 Included (01:00, 02:00)
+01 00:00:00 Includes (00 00:00:00, 01 00:00:00)  
+02-01 00:00:00 Includes (01-01 00:00:00, 02-01 00:00:00)  
+1. Before averaging, quality control should be carried out on the original data;  
+  a. Set the shortwave radiation value less than 5 as 0, missing measurement;  
+  b. Downward short-wave radiation will be emitted. DR And UR are set as nan at the moment of upward shortwave radiation UR, missing test.  
 
 
