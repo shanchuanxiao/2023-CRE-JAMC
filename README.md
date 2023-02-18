@@ -1,4 +1,26 @@
-# 2023-CRE-JAMC
-This repository provides important support for a research paper submitted to Journal of Applied Meteorology and Climatology (JAMC) entitled “A Long-term experiment on the cooling effects of three high albedo materials in Nanjing, China”, which include all scripts and data that were used in this study.
+################################original_data##########################
+1、原始辐射四分量数据，excel和feather格式，excel格式方便直接查看，feather二进制数据方便读取；
+2、2017-2020年南京站日降水资料
 
-Shanchuan Xiao
+###########################after_processing############################
+对原始分钟数据处理后得到的数据，30min、1h、1d、1mon平均
+包含excel和feather格式，分别方便查看和Python读取
+
+##############################excel_feather.py###############################
+将原始excel格式数据转化程feather格式的Python代码
+1、将所有时间的数据整合到一起了；
+2、每种材料都单独存成一个feather格式数据；
+3、四种材料都存在同一个excel当中；
+4、将辐射四分量均为缺测的时刻删除；
+
+################################time_processing.py################################
+对原始数据进行重抽样，计算30min、1h、1d、1mon平均（向前平均）
+    00:30包括(00:00, 00:30], 01:00包括(00:30,01:00]
+    01:00包括(01:00, 02:00]
+    01 00:00:00包括(00 00:00:00, 01 00:00:00]
+    02-01 00:00:00包括(01-01 00:00:00, 02-01 00:00:00]
+1、在进行平均之前，先对原始数据进行质量控制；
+   a. 将短波辐射值小于5的设置为0，缺测；
+   b. 将向下短波辐射DR<向上短波辐射UR时刻的DR、UR设置为nan，缺测；
+
+
