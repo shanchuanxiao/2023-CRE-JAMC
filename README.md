@@ -1,3 +1,6 @@
+# 2023-CER-JAMC
+This repository provides important support for a research paper submitted to Journal of Applied Meteorology and Climatology (JAMC) entitled “A Long-term experiment on the cooling effects of three high albedo materials in Nanjing, China”
+
 ## original_data
 1、The original radiation four-component data is minute data, and one copy is stored in excel format for direct viewing and feather binary data for easy reading;  
 2、Daily precipitation data of Nanjing Station from 2017 to 2020;  
